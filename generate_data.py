@@ -11,6 +11,9 @@ from edge_detector import FaceEdge, get_img_params, get_transform
 
 def draw_edge_dir(detector, predictor, source_dir, target_dir, add_face_keypoints):
 
+    if not os.path.exists(target_dir):
+        os.makedirs(target_dir)
+
     img_paths = glob.glob(os.path.join(source_dir, '*.jpg'))
 
     face_edger = FaceEdge()
